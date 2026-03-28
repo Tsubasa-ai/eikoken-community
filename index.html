@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>先生のための英検コミュニティ | 英語力と指導力を、同時に上げる。</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== リセット & 基本設定 ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --sky: #4FC3F7;
+      --sky-dark: #0288D1;
+      --sky-light: #E1F5FE;
+      --sky-pale: #F0FBFF;
+      --white: #FFFFFF;
+      --text: #1E293B;
+      --text-light: #64748B;
+      --border: #E2E8F0;
+      --shadow: 0 4px 24px rgba(79, 195, 247, 0.15);
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      line-height: 1.8;
+      background: var(--white);
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== ヘッダー ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--sky-dark);
+      letter-spacing: 0.03em;
+    }
+
+    nav { display: flex; gap: 28px; align-items: center; }
+
+    nav a {
+      font-size: 14px;
+      color: var(--text-light);
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--sky-dark); }
+
+    .nav-cta {
+      background: var(--sky);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--sky-dark) !important; }
+
+    /* ===== ヒーロー ===== */
+    .hero {
+      padding-top: 64px;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #E1F5FE 0%, #FFFFFF 55%, #F0FBFF 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,195,247,0.18) 0%, transparent 70%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: -80px;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(2,136,209,0.08) 0%, transparent 70%);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--sky-light);
+      color: var(--sky-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span { color: var(--sky-dark); }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--sky-dark);
+      font-weight: 500;
+      margin-bottom: 40px;
+      background: var(--sky-light);
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--sky);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(79,195,247,0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--sky-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79,195,247,0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--sky-dark);
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 500;
+      border: 2px solid var(--sky);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { background: var(--sky-light); }
+
+    .hero-image {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(2,136,209,0.2);
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--sky-light), var(--sky));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== セクション共通 ===== */
+    section { padding: 96px 24px; }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--sky-dark);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-light);
+      max-width: 580px;
+      line-height: 1.9;
+      margin-bottom: 56px;
+    }
+
+    /* ===== お悩みセクション ===== */
+    .pain { background: var(--sky-pale); }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 720px;
+    }
+
+    .pain-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .pain-item::before {
+      content: '…';
+      color: var(--sky);
+      font-size: 22px;
+      font-weight: 700;
+      flex-shrink: 0;
+      line-height: 1.3;
+    }
+
+    .pain-resolve {
+      margin-top: 40px;
+      background: var(--sky);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 36px;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      max-width: 720px;
+      letter-spacing: 0.05em;
+      line-height: 1.7;
+    }
+
+    /* ===== 特徴 ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--sky);
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+
+    .feature-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sky);
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ===== セッション内容 ===== */
+    .session { background: var(--sky-pale); }
+
+    .session-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .session-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    .session-header {
+      background: var(--sky-dark);
+      color: var(--white);
+      padding: 20px 28px;
+    }
+
+    .session-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .session-header p {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .session-body { padding: 24px 28px; }
+
+    .session-row {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      align-items: flex-start;
+    }
+
+    .session-row:last-child { border-bottom: none; }
+
+    .session-time {
+      color: var(--sky-dark);
+      font-weight: 700;
+      flex-shrink: 0;
+      min-width: 60px;
+    }
+
+    .session-ai {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      grid-column: 1 / -1;
+    }
+
+    .session-ai h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--sky-dark);
+    }
+
+    .session-ai-flow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .flow-step {
+      background: var(--sky-light);
+      color: var(--sky-dark);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    .flow-arrow {
+      color: var(--sky);
+      font-size: 18px;
+    }
+
+    /* ===== 料金 ===== */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 720px;
+    }
+
+    .price-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .price-card.featured { border: 2px solid var(--sky); }
+
+    .price-header {
+      padding: 28px 28px 20px;
+      background: var(--sky-pale);
+      text-align: center;
+    }
+
+    .price-card.featured .price-header { background: var(--sky-light); }
+
+    .price-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--sky-dark);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .price-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .price-amount {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--sky-dark);
+    }
+
+    .price-amount span {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
+    .price-body { padding: 24px 28px; }
+
+    .price-features { list-style: none; }
+
+    .price-features li {
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price-features li:last-child { border-bottom: none; }
+
+    .price-features li::before {
+      content: '✓';
+      color: var(--sky);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .price-note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--text-light);
+      background: var(--sky-pale);
+      padding: 16px 20px;
+      border-radius: 10px;
+      max-width: 720px;
+    }
+
+    /* ===== 講師紹介 ===== */
+    .teacher { background: var(--sky-pale); }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .teacher-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--sky-light), var(--sky));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    .teacher-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .teacher-info h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .teacher-title {
+      font-size: 14px;
+      color: var(--sky-dark);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .teacher-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .teacher-tag {
+      background: var(--sky-light);
+      color: var(--sky-dark);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    .teacher-text {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 2;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list { max-width: 720px; }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 22px 24px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--sky-light);
+      color: var(--sky-dark);
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .faq-a {
+      padding: 0 24px 22px 68px;
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.9;
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: linear-gradient(135deg, var(--sky-dark) 0%, #0369A1 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .cta p {
+      font-size: 15px;
+      opacity: 0.85;
+      margin-bottom: 40px;
+      line-height: 1.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--sky-dark);
+      padding: 18px 48px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+    }
+
+    .btn-line {
+      background: #06C755;
+      color: var(--white);
+      padding: 18px 48px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .btn-line:hover {
+      background: #05A847;
+      transform: translateY(-2px);
+    }
+
+    /* ===== フッター ===== */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    footer p { font-size: 13px; }
+
+    /* ===== レスポンシブ ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+
+      .hero-inner,
+      .session-layout,
+      .teacher-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image { display: none; }
+
+      .features-grid,
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pain-grid { grid-template-columns: 1fr; }
+
+      .session-ai { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">先生のための英検コミュニティ</div>
+      <nav>
+        <a href="#features">特徴</a>
+        <a href="#session">セッション</a>
+        <a href="#price">料金</a>
+        <a href="#teacher">講師紹介</a>
+        <a href="#contact" class="nav-cta">参加する</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">英語教師向け・オンラインコミュニティ</div>
+        <h1>英語力と指導力を、<br><span>同時に上げる。</span></h1>
+        <p class="hero-sub">
+          英検準1級・1級を目指す英語の先生のための、<br>
+          学びと実践が交差するコミュニティです。
+        </p>
+        <p class="hero-note">月2回Zoomセッション ＋ コミュニティチャット</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">コミュニティに参加する</a>
+          <a href="#features" class="btn-secondary">詳しく見る</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero.jpg" alt="先生のための英検コミュニティ" onerror="this.parentElement.innerHTML='🌤️'">
+      </div>
+    </div>
+  </section>
+
+  <!-- お悩み -->
+  <section class="pain" id="pain">
+    <div class="section-inner">
+      <div class="section-label">For You</div>
+      <h2 class="section-title">こんなお悩み、ありませんか？</h2>
+      <div class="pain-grid">
+        <div class="pain-item">英検の勉強を続けたいけど、一人だとモチベーションが続かない</div>
+        <div class="pain-item">生徒に教えているのに、自分の英語力に自信が持てない</div>
+        <div class="pain-item">英検対策の参考書はたくさんあるが、何から手をつけていいかわからない</div>
+        <div class="pain-item">指導法のヒントになる情報を、同じ立場の先生と共有したい</div>
+      </div>
+      <div class="pain-resolve">
+        このコミュニティは、そのすべてに応えます。<br>
+        英語力を上げながら、指導力も一緒に高められる場所です。
+      </div>
+    </div>
+  </section>
+
+  <!-- 特徴 -->
+  <section id="features">
+    <div class="section-inner">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">3つの特徴</h2>
+      <p class="section-desc">英語教師だからこそ生まれる学びの深さがあります。</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-num">FEATURE 01</div>
+          <h3>英語力 × 指導力を<br>同時に伸ばす</h3>
+          <p>自分がつまずいた箇所こそ、生徒がつまずく箇所。英検対策を通じて、授業に直結するヒントを毎回持ち帰れます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-num">FEATURE 02</div>
+          <h3>同じ立場の先生との<br>一次情報共有</h3>
+          <p>「この単語、生徒にどう説明する？」同じ単語でも先生によって説明が違う。その違いがプロとしての視野を広げます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-num">FEATURE 03</div>
+          <h3>AIを活用した<br>個別弱点診断</h3>
+          <p>Zoom録画をAIで文字起こし・分析。メンバーの弱点パターンを抽出し、翌月のセッションテーマに反映します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セッション内容 -->
+  <section class="session" id="session">
+    <div class="section-inner">
+      <div class="section-label">Session</div>
+      <h2 class="section-title">セッション内容</h2>
+      <p class="section-desc">月2回・90分のZoomセッション。英検対策60分 ＋ 指導力向上30分の構成です。</p>
+      <div class="session-layout">
+        <div class="session-card">
+          <div class="session-header">
+            <h3>準1級コース</h3>
+            <p>毎月第2・第4 火曜日 20:30〜</p>
+          </div>
+          <div class="session-body">
+            <div class="session-row">
+              <span class="session-time">0〜60分</span>
+              <span>英検準1級対策（語彙・読解・ライティング・面接）</span>
+            </div>
+            <div class="session-row">
+              <span class="session-time">60〜90分</span>
+              <span>指導力向上ワーク（この回の内容を生徒にどう教えるか）</span>
+            </div>
+          </div>
+        </div>
+        <div class="session-card">
+          <div class="session-header">
+            <h3>1級コース</h3>
+            <p>日程はメンバーと調整</p>
+          </div>
+          <div class="session-body">
+            <div class="session-row">
+              <span class="session-time">0〜60分</span>
+              <span>英検1級対策（語彙・要約・英作文・面接）</span>
+            </div>
+            <div class="session-row">
+              <span class="session-time">60〜90分</span>
+              <span>指導力向上ワーク（上級語彙の教え方・指導法の見直し）</span>
+            </div>
+          </div>
+        </div>
+        <div class="session-ai">
+          <h3>AIを活用した月次フィードバック</h3>
+          <div class="session-ai-flow">
+            <span class="flow-step">Zoom録画</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">AIで文字起こし・分析</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">弱点パターン抽出</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">月次個別診断レポート</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">翌月セッションに反映</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金 -->
+  <section id="price">
+    <div class="section-inner">
+      <div class="section-label">Price</div>
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-desc">月額制。いつでも退会できます。</p>
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="price-header">
+            <div class="price-label">PLAN 01</div>
+            <div class="price-name">準1級コース</div>
+            <div class="price-amount">¥12,000<span>/月（税込）</span></div>
+          </div>
+          <div class="price-body">
+            <ul class="price-features">
+              <li>月2回・90分Zoomセッション</li>
+              <li>コミュニティチャット参加</li>
+              <li>AIによる月次弱点診断</li>
+              <li>セッション録画アーカイブ</li>
+            </ul>
+          </div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-header">
+            <div class="price-label">PLAN 02</div>
+            <div class="price-name">1級コース</div>
+            <div class="price-amount">¥15,000<span>/月（税込）</span></div>
+          </div>
+          <div class="price-body">
+            <ul class="price-features">
+              <li>月2回・90分Zoomセッション</li>
+              <li>コミュニティチャット参加</li>
+              <li>AIによる月次弱点診断</li>
+              <li>セッション録画アーカイブ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="price-note">最低催行人数は各コース3名です。現在メンバー募集中。まずはお気軽にLINEでご相談ください。</p>
+    </div>
+  </section>
+
+  <!-- 講師紹介 -->
+  <section class="teacher" id="teacher">
+    <div class="section-inner">
+      <div class="teacher-grid">
+        <div class="teacher-photo">
+          <img src="images/teacher.jpg" alt="渡邊翼" onerror="this.parentElement.innerHTML='👨‍🏫'">
+        </div>
+        <div class="teacher-info">
+          <div class="section-label">Instructor</div>
+          <h2>渡邊 翼（わたなべ つばさ）</h2>
+          <div class="teacher-title">先生のための英検コミュニティ 主宰</div>
+          <div class="teacher-tags">
+            <span class="teacher-tag">英検1級</span>
+            <span class="teacher-tag">元公立高校英語教師（11年）</span>
+            <span class="teacher-tag">TOEIC 880点</span>
+            <span class="teacher-tag">カナダ留学経験</span>
+            <span class="teacher-tag">AI × 英語教育</span>
+          </div>
+          <p class="teacher-text">
+            公立高校で11年間英語を教えた後、独立。現在は英語教室の運営と並行して、英語教師向けの学習・指導力向上支援に取り組んでいます。<br><br>
+            「英語を教えているのに、自分の英語力に不安がある」という先生の気持ちは、誰よりもわかります。自分がつまずくところが、生徒がつまずくところ。だからこそ、先生自身が学び続けることが最高の指導につながると信じています。<br><br>
+            このコミュニティは、そんな想いから生まれました。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-inner">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">よくある質問</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">
+            <div class="faq-icon">Q</div>
+            英語教師でなくても参加できますか？
+          </div>
+          <div class="faq-a">現在は英語を教えている方（学校・塾・個人教室を問わず）を対象としています。英語教師を目指している方もご相談ください。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <div class="faq-icon">Q</div>
+            準1級をまだ持っていませんが、準1級コースに入れますか？
+          </div>
+          <div class="faq-a">はい、大丈夫です。「準1級を目指している」段階の方を対象としています。現在の英語力よりも、向上への意欲を大切にしています。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <div class="faq-icon">Q</div>
+            Zoomセッションを欠席した場合はどうなりますか？
+          </div>
+          <div class="faq-a">セッションはすべて録画し、アーカイブとして視聴できます。欠席が続く場合もフォローアップの相談に応じますのでご安心ください。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <div class="faq-icon">Q</div>
+            いつでも退会できますか？
+          </div>
+          <div class="faq-a">はい、月単位での退会が可能です。縛りや違約金は一切ありません。次月分の請求前にお申し出いただければ対応します。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <div class="faq-icon">Q</div>
+            コミュニティチャットはどこで行われますか？
+          </div>
+          <div class="faq-a">LINEオープンチャットを使用しています。既存のメンバーともつながれる場として活用していただけます。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="section-inner">
+      <h2>まずはLINEで<br>お気軽にご相談ください</h2>
+      <p>
+        参加前のご質問・体験参加のご希望など、<br>
+        どんなことでもお気軽にお声がけください。
+      </p>
+      <div class="cta-buttons">
+        <a href="https://lin.ee/ezEIKy5" class="btn-line">LINEで相談する（無料）</a>
+        <a href="#price" class="btn-white">料金を確認する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-logo">先生のための英検コミュニティ</div>
+    <p>© 2026 先生のための英検コミュニティ All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
